@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" 
-        id="org.pbernasconi.progressindicator" 
-        version="1.1.0">
+        id="jp.watnow.plugins.progress" 
+        version="1.0.0">
 
     <engines>
         <engine name="cordova" version=">=3.0.0"/>
@@ -10,10 +10,10 @@
 
     <name>Progress Indicator</name>
     <description>Progress Indicator plugin for Cordova 3.X that allows you to show a loading spinner in your Cordova's app.</description>
-    <author>Paolo Bernasconi</author>
+    <author>watnow</author>
     <keywords>progress,indicator,activity,loading,load,progressindicator</keywords>
     <license>Apache 2.0 License</license>
-    <repo>https://github.com/pbernasconi/cordova-progressIndicator.git</repo>
+    <repo>http://gitlab.watnow.jp/watnow/progressplugin.git</repo>
 
     <js-module src="www/progressIndicator.js" name="ProgressIndicator">
         <clobbers target="ProgressIndicator"/>
@@ -37,9 +37,12 @@
     <platform name="android">
         <config-file target="res/xml/config.xml" parent="/*">
             <feature name="ProgressIndicator">
-                <param name="android-package" value="org.apache.cordova.plugin.ProgressIndicator"/>
+                <param name="android-package" value="jp.watnow.plugins.progress.ProgressIndicator"/>
             </feature>
         </config-file>
-        <source-file src="src/android/ProgressIndicator.java" target-dir="src/org/apache/cordova/plugin"/>
+        <source-file src="src/android/ProgressIndicator.java" target-dir="src/jp/watnow/plugins/progress"/>
+        <js-module src="www/android/progressIndicator.js" name="ProgressIndicator_android">
+            <merges target="ProgressIndicator" />
+        </js-module>
     </platform>
 </plugin>
