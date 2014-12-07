@@ -108,7 +108,7 @@
 
 - (void)hide:(CDVInvokedUrlCommand*)command
 {
-    if (!self.progressIndicator) {
+    if (self.progressIndicator == nil) {
         CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR];
         [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
         return;
