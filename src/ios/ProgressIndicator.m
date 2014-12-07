@@ -108,14 +108,18 @@
 
 - (void)hide:(CDVInvokedUrlCommand*)command
 {
-    if (self.progressIndicator == nil) {
-        CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR];
-        [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
-        return;
+    if (self.progressIndicator != nil) {
+            [self.progressIndicator hide:YES];
+            CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@""];
+            [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+            self.progressIndicator = nil;
+    }else{
+            CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR];
+            [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+             self.progressIndicator = nil;
+            return;
     }
-    [self.progressIndicator hide:YES];
-    CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@""];
-    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+
 }
 
 @end
