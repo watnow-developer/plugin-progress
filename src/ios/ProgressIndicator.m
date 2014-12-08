@@ -66,7 +66,7 @@
     // obtain commands
     
     // obtain commands
-    //NSString* text = [command.arguments objectAtIndex:0];
+    NSString* text = [command.arguments objectAtIndex:0];
     NSString* detail = [command.arguments objectAtIndex:1];
     bool dim = [[command.arguments objectAtIndex:2] boolValue];
     //int increment = [[command.arguments objectAtIndex:1] intValue];
