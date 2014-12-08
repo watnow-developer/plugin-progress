@@ -76,7 +76,8 @@
     self.progressIndicator = nil;
     self.progressIndicator = [MBProgressHUD showHUDAddedTo:self.webView.superview animated:YES];
     self.progressIndicator.mode = MBProgressHUDModeDeterminateHorizontalBar;
-    self.progressIndicator.labelText = detail;
+    self.progressIndicator.labelText = text;
+    self.progressIndicator.detailsLabelText = detail;
     self.progressIndicator.progress = 0.0f;
     
     // Check for dim : true ? false
